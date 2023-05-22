@@ -6,12 +6,18 @@ import linkedin from './Linkedin.png';
 import Github from './github-mark-white.png'
 import LienImg from "./components/lienImg";
 import Skills from "./components/Skills";
+import Map from './components/Map';
 
 const competences = [
   { id: 1, nom : 'Symfony', niveau: 6},
   { id: 2, nom : 'Javascript', niveau: 5},
   { id: 3, nom : 'JQuery', niveau: 5},
   { id: 4, nom : 'NodeJs', niveau: 4}
+]
+const formations =[
+  {id:1, titre:'Bachelor  Développeur Fullstack et DevOps', date: "Septembre 2022 à septembre 2023", lieu:"IPSSI SQY - ÉCOLE D'INFORMATIQUE WEB ET DIGITAL MARKETING"},
+  {id:2, titre:'Licence Métier de l\'informatique : Conception développement et test de logiciels parcours :développement Web et mobile', date: "Septembre 2021 à juillet 2022", lieu:"IUT INFORMATIQUE DE L'UNIVERSITÉ D'ORLÉANS"},
+  {id:3, titre:'Dut Informatique', date: "2019 à 2021", lieu:"IUT INFORMATIQUE DE L'UNIVERSITÉ D'ORLÉANS"}
 ]
 
 function App() {
@@ -54,8 +60,12 @@ function App() {
           )} */}
         </section>
         <section>Expériences</section>
-        <section>Formations</section>
-        <section>Diplomes</section>
+        <section>
+          <h2>Formations</h2>
+          {formations.map((data, id) => (
+            <Map key={id} titre={data.titre} date={data.date} lieu={data.lieu}/>
+          ))}
+        </section>
         <section>Centre d&#39;intéret</section>
       
         <LienImg img={Github} lien="https://github.com/Lansor"/>
