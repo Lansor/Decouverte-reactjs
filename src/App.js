@@ -1,7 +1,18 @@
 import logo from "./image.png";
 import "./App.css";
-import Layout from './components/layout/layout';
+import Profile from './components/profile';
 import Projet from "./components/projet";
+import linkedin from './Linkedin.png';
+import Github from './github-mark-white.png'
+import LienImg from "./components/lienImg";
+import Skills from "./components/Skills";
+
+const competences = [
+  { id: 1, nom : 'Symfony', niveau: 6},
+  { id: 2, nom : 'Javascript', niveau: 5},
+  { id: 3, nom : 'JQuery', niveau: 5},
+  { id: 4, nom : 'NodeJs', niveau: 4}
+]
 
 function App() {
   return (
@@ -27,20 +38,27 @@ function App() {
         >
           Learn React
         </a>
-
-        <section>Martins  Killian  Developpeur web Fullstacks</section>
+        </header>
+        <main className="App-main">
+        <Profile prenom='Killian' nom='Martins' role='Developpeur Full Stack'/>
+        <LienImg img={linkedin} lien="https://www.linkedin.com/in/killian-martins-161a401bb/"/>
         <section>
-         <a href="https://www.linkedin.com/in/killian-martins-161a401bb/">Linkedin</a>
-        </section>
-        <section>Compétences 
-          -Nom de la Compétences
-          -Niveau
+          <h2>Compétences </h2>
+
+          {competences.map((data, id) => (
+            <Skills key={id} name={data.nom} level={data.niveau}/>
+          ))}
+          {/* {Competences.map((data, id) =>{
+           return <Skills key={id} name={data.nom} level={data.niveau}/>
+          }
+          )} */}
         </section>
         <section>Expériences</section>
         <section>Formations</section>
         <section>Diplomes</section>
         <section>Centre d&#39;intéret</section>
-        <section><a href="https://github.com/Lansor">Github</a></section>
+      
+        <LienImg img={Github} lien="https://github.com/Lansor"/>
         <section>
           Projet:
           -Nom
@@ -48,8 +66,9 @@ function App() {
           -Img
           -Lien
         </section>
-      </header>
-    </div>
+        </main>
+        </div>
+
   );
 }
 
